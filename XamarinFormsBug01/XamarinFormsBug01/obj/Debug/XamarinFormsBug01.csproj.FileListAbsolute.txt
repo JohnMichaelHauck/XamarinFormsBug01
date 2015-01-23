@@ -7,3 +7,4 @@ C:\Users\hauck\Documents\XamarinFormsBug01\XamarinFormsBug01\XamarinFormsBug01\b
 C:\Users\hauck\Documents\XamarinFormsBug01\XamarinFormsBug01\XamarinFormsBug01\obj\Debug\XamarinFormsBug01.csprojResolveAssemblyReference.cache
 C:\Users\hauck\Documents\XamarinFormsBug01\XamarinFormsBug01\XamarinFormsBug01\obj\Debug\XamarinFormsBug01.dll
 C:\Users\hauck\Documents\XamarinFormsBug01\XamarinFormsBug01\XamarinFormsBug01\obj\Debug\XamarinFormsBug01.pdb
+C:\Users\hauck\Documents\XamarinFormsBug01\XamarinFormsBug01\XamarinFormsBug01\obj\Debug\MainView.xaml.g.cs
