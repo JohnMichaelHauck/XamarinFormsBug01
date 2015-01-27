@@ -7,12 +7,14 @@
       <StackLayout>
         <Label Text="Bug" FontSize="Large"/>
         <Label Text="We have a TabbedPage with a ListView bound to an ObservableCollection."/>
-        <Label Text="If the switch is off, there should be 2 items in the Results tab."/>
-        <Label Text="If the switch is on, there should be 5 items in the Results tab."/>
-        <Label Text="Flip the switch, go to the Results tab, notice the wrong data. If the data is correct, come back here and flip the switch and try it again. After a few tries, you should see the bug."/>
-        <Label Text="Then swipe the data down and notice it gets better."/>
-        <Label Text="This bug only happens on Android."/>
-        <Switch IsToggled="{Binding TwoOrFive}"/>
+        <Label Text=""/>
+        <Label Text="When you flip this switch, a new ObservableCollection is created, then new data is added."/>
+        <Switch IsToggled="{Binding NewOc}"/>
+        <Label Text=""/>
+        <Label Text="When you flip this switch, the ObservableCollection is Cleared, then new data is added."/>
+        <Label Text="On iOS, this causes an Objective-C exception to be thrown."/>
+        <!--Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: Invalid update: invalid number of rows in section 0.  The number of rows contained in an existing section after the update (1) must be equal to the number of rows contained in that section before the update (1), plus or minus the number of rows inserted or deleted from that section (1 inserted, 0 deleted) and plus or minus the number of rows moved into or out of that section (0 moved in, 0 moved out).!-->
+        <Switch IsToggled="{Binding OcClear}"/>
       </StackLayout>
     </ContentPage>
     <ContentPage Title="Results">
