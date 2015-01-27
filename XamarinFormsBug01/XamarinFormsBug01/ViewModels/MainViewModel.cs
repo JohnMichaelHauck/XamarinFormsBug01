@@ -1,46 +1,48 @@
 ﻿using System.Collections.ObjectModel;
-using Xamarin.Forms;
 
 namespace XamarinFormsBug01.ViewModels
 {
-	public class MainViewModel : ViewModelBase
-	{
-		private ObservableCollection<EntryViewModel> _entries;
-		public ObservableCollection<EntryViewModel> Entries
-		{
-			get { return _entries; }
-			private set { _entries = value; OnPropertyChanged(); }
-		}
+    public class MainViewModel : ViewModelBase
+    {
+        public ObservableCollection<EntryViewModel> Entries { get; private set; }
 
-		private bool _newOc;
-		public bool NewOc
-		{
-			get { return _newOc; }
-			set
-			{
-				_newOc = value;
-				OnPropertyChanged();
-				Entries = new ObservableCollection<EntryViewModel>();
-				Entries.Add(new EntryViewModel { Name = "Just created a new ObservableCollection" });
-			}
-		}
+        private double _desiredCount;
+        public double DesiredCount
+        {
+            get { return _desiredCount; }
+            set
+            {
+                _desiredCount = value;
+                OnPropertyChanged();
+                GenerateEntries();
+            }
+        }
 
-		private bool _ocClear;
-		public bool OcClear
-		{
-			get { return _ocClear; }
-			set
-			{
-				_ocClear = value;
-				OnPropertyChanged();
-				Entries.Clear();
-				Entries.Add(new EntryViewModel { Name = "Just cleared the ObservableCollection" });
-			}
-		}
+        private bool _twoOrFive;
+        public bool TwoOrFive
+        {
+            get { return _twoOrFive; }
+            set
+            {
+                _twoOrFive = value;
+                OnPropertyChanged();
+                DesiredCount = _twoOrFive ? 5 : 2;
+            }
+        }
 
-		public MainViewModel()
-		{
-			Entries = new ObservableCollection<EntryViewModel>();
-		}
-	}
+        public MainViewModel()
+        {
+            Entries = new ObservableCollection<EntryViewModel>();
+            TwoOrFive = false; // prime
+        }
+
+        private void GenerateEntries()
+        {
+            Entries.Clear();
+            for (var i = 0; i < DesiredCount; i++)
+            {
+                Entries.Add(new EntryViewModel { Name = "Entry " + i + " of " + DesiredCount });
+            }
+        }
+    }
 }
